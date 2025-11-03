@@ -1,6 +1,5 @@
 import flet as ft
 from flet.core.types import MainAxisAlignment
-
 from UI.alert import AlertManager
 
 '''
@@ -66,8 +65,8 @@ class View:
 
         # Altri Pulsanti da implementare (es. "Mostra" e "Cerca")
         self.testo = ft.Text("Automobili", size=16)
-        bottone_mostra=ft.ElevatedButton("Mostra", on_click=self.controller.mostra) # DA DEFINIRE
-        bottone_cerca = ft.ElevatedButton("Cerca", on_click=self.controller.cerca) #DA DEFINIRE
+        bottone_mostra=ft.ElevatedButton("Mostra", on_click=self.controller.mostra)
+        bottone_cerca = ft.ElevatedButton("Cerca", on_click=self.controller.cerca)
 
         # --- LAYOUT ---
         self.page.add(
