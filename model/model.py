@@ -47,6 +47,7 @@ class Autonoleggio:
             automobili.append(Automobile(*row))
         cursor.close()
         cnx.close()
+        return automobili
 
     def cerca_automobili_per_modello(self, modello) -> list[Automobile] | None:
         """
