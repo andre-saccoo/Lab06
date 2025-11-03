@@ -28,4 +28,30 @@ class Controller:
         self._view.update()
 
     # Altre Funzioni Event Handler
+
     # TODO
+    def mostra(self):
+        self._view.lista_auto.controls.clear()
+        automobili = self._model.get_automobili()
+        if automobili:
+            for auto in automobili:
+                self._view.lista_auto.controls.append(ft.Text(str(auto)))
+        else:
+            self._view.lista_auto.controls.append(ft.Text("Nessuna auto presente"))
+        self._view.update()
+
+    def cerca(self):
+        self._view.lista_auto_ricerca.controls.clear()
+        modello=self._view.input_modello_auto.value
+        if not modello.strip():
+            (self.lista_auto_ricerca.controls.append(ft.Text("Nessuna modello inserito nella ricerca, reinserire il modello:")))
+            self._view.update()
+            return
+        automobili_modello= self.model.cerca(modello)
+        if automobili_modello:
+            for auto in automobili_modello:
+                self._view.lista_auto_ricerca.controls.append(ft.Text(str(auto)))
+        else:
+            self._view.lista_auto_ricerca.controls.append(ft.Text("Nessuna auto presente"))
+        self._view.input_modello_auto.value = None
+        self._view.update()
