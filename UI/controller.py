@@ -27,9 +27,8 @@ class Controller:
         self._view.txt_responsabile.value = f"Responsabile: {self._model.responsabile}"
         self._view.update()
 
-    # Altre Funzioni Event Handler
 
-    # TODO
+    # Altre Funzioni Event Handler
     def mostra(self):
         self._view.lista_auto.controls.clear()
         automobili = self._model.get_automobili()
