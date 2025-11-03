@@ -1,6 +1,7 @@
 from database.DB_connect import get_connection
 from model.automobile import Automobile
 from model.noleggio import Noleggio
+import mysql.connector
 
 '''
     MODELLO: 
@@ -36,7 +37,15 @@ class Autonoleggio:
             :return: una lista con tutte le automobili presenti oppure None
         """
 
-        # TODO
+        cnx = get_connection()
+        cursor = cnx.cursor()
+        cursor.execute("SELECT * FROM automobile")
+        rows = cursor.fetchall()
+        automobili = []
+        for row in rows:
+            automobili.append(Automobile(*row))
+        cursor.close()
+        cnx.close()
 
     def cerca_automobili_per_modello(self, modello) -> list[Automobile] | None:
         """
@@ -44,4 +53,13 @@ class Autonoleggio:
             :param modello: il modello dell'automobile
             :return: una lista con tutte le automobili di marca e modello indicato oppure None
         """
-        # TODO
+        cnx = get_connection()
+        cursor = cnx.cursor()
+        cursor.execute("SELECT * FROM automobile WHERE modello=%s", (modello,))
+        rows = cursor.fetchall()
+        automobili_ordinate = []
+        for row in rows:
+            automobili_ordinate.append(Automobile(*row))
+        cursor.close()
+        cnx.close()
+        return automobili_ordinate
