@@ -39,7 +39,8 @@ class Autonoleggio:
 
         cnx = get_connection()
         cursor = cnx.cursor()
-        cursor.execute("SELECT * FROM automobile")
+        query="""SELECT * FROM automobile"""
+        cursor.execute(query)
         rows = cursor.fetchall()
         automobili = []
         for row in rows:
@@ -55,7 +56,9 @@ class Autonoleggio:
         """
         cnx = get_connection()
         cursor = cnx.cursor()
-        cursor.execute("SELECT * FROM automobile WHERE modello=%s", (modello,))
+        query="""SELECT * FROM automobile 
+                WHERE modello=%s"""
+        cursor.execute(query, (modello,))
         rows = cursor.fetchall()
         automobili_ordinate = []
         for row in rows:
