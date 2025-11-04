@@ -2,7 +2,6 @@
 import flet as ft
 from UI.alert import AlertManager
 
-
 '''
     VIEW:
     - Rappresenta l'interfaccia utente
@@ -69,7 +68,7 @@ class View:
         self.toggle_cambia_tema = ft.Switch(label="Tema scuro", value=True, on_change=self.cambia_tema)
         pulsante_conferma_responsabile = ft.ElevatedButton("Conferma", on_click=self.controller.conferma_responsabile)
 
-        # Altri Pulsanti da implementare (es. "Mostra" e "Cerca")
+        # Pulsanti mostra e cerca, al click fanno partire le rispettive funzioni di handler
         self.testo = ft.Text("Automobili", size=16)
         bottone_mostra=ft.ElevatedButton("Mostra", on_click=self.controller.mostra)
         bottone_cerca = ft.ElevatedButton("Cerca", on_click=self.controller.cerca)
