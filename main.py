@@ -1,4 +1,3 @@
-
 import flet as ft
 from model.model import Autonoleggio
 from UI.view import View
