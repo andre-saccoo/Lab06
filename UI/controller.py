@@ -28,7 +28,7 @@ class Controller:
         self._view.update()
 
 
-    # Altre Funzioni Event Handler
+    # funzioni handler da collegare ai bottoni creati
     def mostra(self,e):
         self._view.lista_auto.controls.clear()
         automobili = self._model.get_automobili()
