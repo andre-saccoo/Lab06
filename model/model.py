@@ -49,7 +49,7 @@ class Autonoleggio:
         cnx.close()
         return automobili
 
-    def cerca_automobili_per_modello(self, modello) -> list[Automobile] | None:
+    def cerca(self, modello) -> list[Automobile] | None:
         """
             Funzione che recupera una lista con tutte le automobili presenti nel database di una certa marca e modello
             :param modello: il modello dell'automobile
