@@ -1,3 +1,4 @@
+#classe che definisce l'oggetto automobile, quando leggiamo la riga del db diventerà un oggetto automobile
 class Automobile:
     def __init__(self, codice, marca, modello, anno, posti, disponibile=True):
         self.codice = codice
