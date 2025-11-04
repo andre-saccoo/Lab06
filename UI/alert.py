@@ -1,3 +1,5 @@
+
+
 import flet as ft
 
 class AlertManager:

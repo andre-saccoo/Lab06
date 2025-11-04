@@ -1,13 +1,14 @@
+# importo il modulo flet per la realizzazione della schermata grafica; Dalla cartella UI seleziono il file alert.py e importo la classe AlertManager
 import flet as ft
-from flet.core.types import MainAxisAlignment
 from UI.alert import AlertManager
+
 
 '''
     VIEW:
     - Rappresenta l'interfaccia utente
     - Riceve i dati dal MODELLO e li presenta senza modificarli
 '''
-
+# la classe view ha il compito di creare l'interfaccia grafica
 class View:
     def __init__(self, page: ft.Page):
         # Page
@@ -28,18 +29,23 @@ class View:
 
         # Non obbligatorio mettere già qui tutti gli elementi UI
 
+    #funzione che lancia crea una finestra di avviso modale (richiudibile)
     def show_alert(self, messaggio):
         self.alert.show_alert(messaggio)
 
+
+    """ Imposta il controller alla pagina """
     def set_controller(self, controller):
-        """ Imposta il controller alla pagina """
         self.controller = controller
 
+
+    #funzione di aggiornamento della pagina
     def update(self):
         self.page.update()
 
+
+    """ Crea e aggiunge Elementi di UI alla pagina e la aggiorna. """
     def load_interface(self):
-        """ Crea e aggiunge Elementi di UI alla pagina e la aggiorna. """
         self.txt_titolo = ft.Text(value=self.controller.get_nome(), size=38, weight=ft.FontWeight.BOLD)
         self.txt_responsabile = ft.Text(
             value=f"Responsabile: {self.controller.get_responsabile()}",
